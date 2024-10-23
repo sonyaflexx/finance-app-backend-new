@@ -1,12 +1,10 @@
 'use strict';
 
 const { Sequelize } = require("sequelize");
+const pg = require('pg'); 
 
-console.log(process.env.DB_HOST)
 module.exports = new Sequelize(
-  process.env.DB_URL,
-  {
-    dialect: "postgres",
-    ssl: true
-  }
+    process.env.DB_URL, {
+      dialectModule: pg
+    }
 );
